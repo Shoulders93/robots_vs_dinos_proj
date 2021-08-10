@@ -1,7 +1,7 @@
 class Weapon:
-    def __init__(self, name):
+    def __init__(self, name, damage):
         self.weapon_type = name
-        self.damage = 0
-    
-    def specific_damage(self, damage):
         self.damage = damage
+
+weapon_sword = Weapon("sword", 15)
+weapon_lazer = Weapon("lazer", 10)
