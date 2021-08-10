@@ -8,7 +8,3 @@ class Robots:
         self.attack_damage = attack_damage
     def attacking(self):
         self.attacking -= self.attack_damage
-
-robot_one = Robots("Wallie", 100, "Sword", 15)
-robot_two = Robots("Tinker", 100, "Lazer", 10)
-robot_three = Robots("Rusty", 100, "Sword", 15)
