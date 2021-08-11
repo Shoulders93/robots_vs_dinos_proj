@@ -14,12 +14,37 @@ class Battlefield:
         self.keep_fighting = True
         while self.keep_fighting:
             while self.dinosaurs_attack:
-                if(Herd_of_dinosaurs.dino_herd[1].health > 0):
-                    Fleet_of_robots.robot_fleet[1].health -= Herd_of_dinosaurs.dino_herd[1].attack_damage
-                    print("Robot has" + Fleet_of_robots.robot_fleet[1].health + "left!")
-                    self.dinosaurs_attack != self.dinosaurs_attack
-                elif(Herd_of_dinosaurs.dino_herd[1].health == 0):
-                    self.keep_fighting = False
+                if(self.team_robots.robot_one.health > 0):
+                    self.team_robots.robot_one.health -= self.team_dinosaurs.dino_one.attack_damage
+                    print("Robot has " + str(self.team_robots.robot_one.health) + " left!")
+                    if(self.team_robots.robot_one.health == 0):
+                        print("Robot has fainted!")
+                        self.dinosaurs_attack = False
+                        self.keep_fighting = False
+                        self.robots_attack = False
+                        break
+                    if(self.dinosaurs_attack == True):
+                        self.dinosaurs_attack = False
+                # elif(self.team_robots.robot_one.health == 0):
+                #     print("Robot has fainted!")
+                #     self.dinosaurs_attack = False
+                #     self.keep_fighting = False
+            while self.robots_attack:
+                if(self.team_dinosaurs.dino_one.health > 0):
+                    self.team_dinosaurs.dino_one.health -= self.team_robots.robot_one.attack_damage
+                    print("Dinosaur has " + str(self.team_dinosaurs.dino_one.health) + " left!")
+                    if(self.robots_attack == True):
+                        self.robots_attack = False
+                    else:
+                        self.robots_attack = True
+                elif(self.team_dinosaurs.dino_one.health == 0):
+                    print("Dinosaur has fainted!")
+                    self.robots_attack = False
+            if(self.dinosaurs_attack == False and self.keep_fighting == True):
+                    self.dinosaurs_attack = True
+            if(self.robots_attack == False and self.keep_fighting == True):
+                self.robots_attack = True
+
     def next_turn(self):
         if (self.dinosaurs_attack == True):
             self.dinosaurs_attack = False

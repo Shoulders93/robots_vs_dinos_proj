@@ -9,6 +9,7 @@ from battlefield import Battlefield
 # ** Instantiation of Objects
 
 battle_one = Battlefield()
-battle_one.round_one()
-battle_one.next_turn()
-battle_one.next_turn1()
+index = 0
+while (index <= 2 ):
+    battle_one.battle_round(index)
+    index += 1
