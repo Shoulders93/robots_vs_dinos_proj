@@ -5,8 +5,8 @@ from fleet import Fleet_of_robots
 
 class Battlefield:
     def __init__(self):
-        self.team_dinosaurs = Herd_of_dinosaurs
-        self.team_robots = Fleet_of_robots
+        self.team_dinosaurs = Herd_of_dinosaurs()
+        self.team_robots = Fleet_of_robots()
     
     def round_one(self):
         self.robots_attack = True
@@ -19,12 +19,19 @@ class Battlefield:
                     print("Robot has" + Fleet_of_robots.robot_fleet[1].health + "left!")
                     self.dinosaurs_attack != self.dinosaurs_attack
                 elif(Herd_of_dinosaurs.dino_herd[1].health == 0):
-                    self.dinosaurs_attack = False
+                    self.keep_fighting = False
+    def next_turn(self):
+        if (self.dinosaurs_attack == True):
+            self.dinosaurs_attack = False
+        else:
+            self.dinosaurs_attack = True
     
-    def round_two(self, robots, dinosaurs):
-        self.first_turn = robots
-        self.second_turn = dinosaurs
+    def next_turn1(self):
+        if (self.robots_attack == True):
+            self.robots_attack = False
+        else:
+            self.robots_attack = True
 
-    def round_three(self, robots, dinosaurs):
-        self.first_turn = dinosaurs
-        self.second_turn = robots
+    # def round_two(self, robots, dinosaurs):
+
+    # def round_three(self, robots, dinosaurs):
