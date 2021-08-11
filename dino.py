@@ -3,5 +3,3 @@ class Dinosaurs:
         self.name = name
         self.health = health
         self.attack_damage = attack_damage
-    def attacking(self):
-        self.attacking -= self.attack_damage
